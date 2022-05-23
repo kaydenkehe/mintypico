@@ -1,21 +1,21 @@
-# Project Title
+# **Project Title**
 #### This repo contains the code and files necessary to build the "***project name***"<br/>
 #### Youtube tutorial: ***link***<br/>
 #### For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron<br/>
 #
 
-CODE:
-sh1106.py: Driver for display, code found at https://github.com/robert-hh/SH1106
-main.py: All of the code that isn't the driver. Handles games, menu, battery capacity, etc.
+**CODE:**<br/>
+sh1106.py: Driver for display, code found at https://github.com/robert-hh/SH1106<br/>
+main.py: All of the code that isn't the driver. Handles games, menu, battery capacity, etc.<br/>
 
-OTHER FILES:
-screenholder.obj: Holds display in place
-holeguide.obj: Guide for drilling holes in the tin
-base.obj: Holds the Pico and battery
-buttonholder.obj: Holds the button switches
-pcb.zip: Folder containing gerber files for PCB
+**OTHER FILES:**<br/>
+screenholder.obj: Holds display in place<br/>
+holeguide.obj: Guide for drilling holes in the tin<br/>
+base.obj: Holds the Pico and battery<br/>
+buttonholder.obj: Holds the button switches<br/>
+pcb.zip: Folder containing gerber files for PCB<br/>
 
-PARTS:
+**PARTS:**<br/>
 Display: 
 Pimoroni Pico LiPo: 
 LiPo battery: 
