@@ -1,6 +1,6 @@
 # **Project Title**
 ##### This repo contains the code and files necessary to build the "***project name***" <br/>
-##### Youtube tutorial: ***link***<br/>
+##### Youtube tutorial: https://youtube.com/ <br/>
 ##### For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron <br/>
 #
 
@@ -17,10 +17,10 @@
 
 ### **PARTS:** <br/>
 **Display:** <br/>
-Pimoroni Pico LiPo: <br/>
-LiPo battery: <br/>
-Altoids Smalls Tins: <br/>
-Buttons: <br/>
-Wire: <br/>
-Tape: <br/>
-Trimmers (optional, but highly reccomended): https://www.amazon.com/Tulead-Cutters-Nippers-Diagonal-Electronics/dp/B07X753HCN/?th=1 <br/>
+**Pimoroni Pico LiPo:** <br/>
+**LiPo battery:** <br/>
+**Altoids Smalls Tins:** <br/>
+**Buttons:** <br/>
+**Wire:** <br/>
+**Tape:** <br/>
+**Trimmers:** (optional, but highly reccomended) https://www.amazon.com/Tulead-Cutters-Nippers-Diagonal-Electronics/dp/B07X753HCN/?th=1 <br/>
