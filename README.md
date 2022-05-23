@@ -5,7 +5,7 @@
 #
 
 ### **CODE:**<br/>
-**sh1106.py:** Driver for display, code found at https://github.com/robert-hh/SH1106 <br/>
+**sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
 **main.py:** All of the code that isn't the driver. Handles games, menu, battery capacity, etc. <br/>
 
 ### **OTHER FILES:** <br/>
