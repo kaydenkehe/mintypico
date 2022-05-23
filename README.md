@@ -14,7 +14,7 @@
 --**holeguide.obj:** Guide for drilling holes in the tin <br/>
 --**base.obj:** Holds the Pico and battery <br/>
 --**buttonholder.obj:** Holds the button switches <br/>
-**pcb.zip:** Containins gerber files for PCB. I ordered my PCB from https://www.pcbway.com/ <br/>
+**pcb.zip:** Contains gerber files for PCB. I ordered my PCB from https://www.pcbway.com/ <br/>
 
 ### **PARTS:** <br/>
 **Display:** https://www.amazon.com/Teyleten-Robot-Display-Raspberry-Microcontroller/dp/B08J1D212N/ <br/>
