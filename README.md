@@ -16,7 +16,7 @@ buttonholder.obj: Holds the button switches <br/>
 pcb.zip: Folder containing gerber files for PCB <br/>
 
 ### **PARTS:** <br/>
-Display: <br/>
+*Display*: <br/>
 Pimoroni Pico LiPo: <br/>
 LiPo battery: <br/>
 Altoids Smalls Tins: <br/>
