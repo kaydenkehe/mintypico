@@ -23,4 +23,3 @@
 **Buttons:** https://www.amazon.com/dp/B09YPQV1F9/ <br/>
 **Wire:** https://www.amazon.com/StrivedayTM-Flexible-Silicone-electronic-electrics/dp/B01KQ2JNLI/ <br/>
 **Tape:** (I know it's expensive, but it works really well) https://www.amazon.com/gp/product/B07GWRF9D8/ <br/>
-**Trimmers:** (optional, but highly reccomended) https://www.amazon.com/Tulead-Cutters-Nippers-Diagonal-Electronics/dp/B07X753HCN/?th=1 <br/>
