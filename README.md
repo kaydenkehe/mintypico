@@ -9,10 +9,11 @@
 **main.py:** All of the code that isn't the driver. Handles games, menu, battery capacity, etc. <br/>
 
 ### **OTHER FILES:** <br/>
-**screenholder.obj:** Holds display in place <br/>
-**holeguide.obj:** Guide for drilling holes in the tin <br/>
-**base.obj:** Holds the Pico and battery <br/>
-**buttonholder.obj:** Holds the button switches <br/>
+**prints.zip:** Contains all 3D print files <br/>
+  **screenholder.obj:** Holds display in place <br/>
+  **holeguide.obj:** Guide for drilling holes in the tin <br/>
+  **base.obj:** Holds the Pico and battery <br/>
+  **buttonholder.obj:** Holds the button switches <br/>
 **pcb.zip:** Folder containing gerber files for PCB <br/>
 
 ### **PARTS:** <br/>
