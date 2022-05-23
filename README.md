@@ -2,7 +2,7 @@
 #### This repo contains the code and files necessary to build the "***project name***"<br/>
 #### Youtube tutorial: ***link***<br/>
 #### For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron<br/>
----------------------------------------
+#
 
 CODE:
 sh1106.py: Driver for display, code found at https://github.com/robert-hh/SH1106
