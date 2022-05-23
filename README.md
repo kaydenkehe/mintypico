@@ -16,11 +16,11 @@
 **pcb.zip:** Folder containing gerber files for PCB <br/>
 
 ### **PARTS:** <br/>
-**Display:** <br/>
-**Pimoroni Pico LiPo:** <br/>
-**LiPo battery:** <br/>
-**Altoids Smalls Tins:** <br/>
-**Buttons:** <br/>
-**Wire:** <br/>
-**Tape:** <br/>
+**Display:** https://www.amazon.com/Teyleten-Robot-Display-Raspberry-Microcontroller/dp/B08J1D212N/ <br/>
+**Pimoroni Pico LiPo:** https://shop.pimoroni.com/products/pimoroni-pico-lipo <br/>
+**LiPo battery:** https://www.amazon.com/Battery-Packs-Lithium-Polymer-100mAh/dp/B0137KTPP0/ <br/>
+**Altoids Smalls Tins:** https://www.amazon.com/ALTOIDS-Smalls-Peppermint-Breath-0-37-Ounce/dp/B005CXDWT6/ <br/>
+**Buttons:** https://www.amazon.com/dp/B09YPQV1F9/ <br/>
+**Wire:** https://www.amazon.com/StrivedayTM-Flexible-Silicone-electronic-electrics/dp/B01KQ2JNLI/ <br/>
+**Tape:** (I know it's expensive, but it works really well) https://www.amazon.com/gp/product/B07GWRF9D8/ <br/>
 **Trimmers:** (optional, but highly reccomended) https://www.amazon.com/Tulead-Cutters-Nippers-Diagonal-Electronics/dp/B07X753HCN/?th=1 <br/>
