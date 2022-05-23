@@ -1,6 +1,8 @@
+# Project Title
 This repo contains the code and files necessary to build the "***project name***"
 Youtube tutorial: ***link***
 For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron
+---------------------------------------
 
 CODE:
 sh1106.py: Driver for display, code found at https://github.com/robert-hh/SH1106
