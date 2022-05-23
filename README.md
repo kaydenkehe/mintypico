@@ -1,7 +1,7 @@
 # Project Title
-#This repo contains the code and files necessary to build the "***project name***"<br/>
-#Youtube tutorial: ***link***<br/>
-##For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron<br/>
+### This repo contains the code and files necessary to build the "***project name***"<br/>
+# Youtube tutorial: ***link***<br/>
+## For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron<br/>
 ---------------------------------------
 
 CODE:
