@@ -4,6 +4,12 @@
 ##### For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron <br/>
 #
 
+### **USAGE:**<br/>
+The top left button starts games
+The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x)
+To switch the Pico back into normal mode, hold the low power button, then press the right button, then press the top button
+The four right buttons operate the games
+
 ### **CODE:**<br/>
 **sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
 **main.py:** All of the code that isn't the driver. Handles games, menu, battery capacity, etc. <br/>
