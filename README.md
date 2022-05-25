@@ -1,16 +1,16 @@
-# **Project Title**
-##### This repo contains the code and files necessary to build the "***project name***" <br/>
+# **mintyPico**
+##### This repo contains the code and files necessary to build the "***mintyPico***" <br/>
 ##### Youtube tutorial: https://youtube.com/ <br/>
 ##### For this project, you should have a drill, a dremel, a metal file set (optional), and a soldering iron <br/>
 #
 
 ### **USAGE:**<br/>
-The top left button starts games
-The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x)
-To switch the Pico back into normal mode, hold the low power button, then press the right button, then press the top button
-The four right buttons operate the games
+The top left button starts games <br/>
+The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x) <br/>
+To switch the Pico back into normal mode, hold the low power button, then press the right button, then press the top button <br/>
+The four right buttons operate the games <br/>
 
-### **CODE:**<br/>
+### **CODE:** <br/>
 **sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
 **main.py:** All of the code that isn't the driver. Handles games, menu, battery capacity, etc. <br/>
 
@@ -30,3 +30,9 @@ The four right buttons operate the games
 **Buttons:** https://www.amazon.com/dp/B09YPQV1F9/ <br/>
 **Wire:** https://www.amazon.com/StrivedayTM-Flexible-Silicone-electronic-electrics/dp/B01KQ2JNLI/ <br/>
 **Tape:** (I know it's expensive, but it works really well) https://www.amazon.com/gp/product/B07GWRF9D8/ <br/>
+
+### **NOTES:** <br/>
+Feel free to use the code and files from this project in any capacity you like, commercial or otherwise :) <br/>
+My two main sources of inspiration for this project are the mintyPi from sudomod, and the Pico snake project from Hari Wiguna <br/>
+mintyPi: https://www.youtube.com/watch?v=YqE2x-0JYzs
+Pico snake: https://www.youtube.com/watch?v=5r_6mbYlLVo
