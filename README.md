@@ -34,5 +34,5 @@ The four right buttons operate the games <br/>
 ### **NOTES:** <br/>
 Feel free to use the code and files from this project in any capacity you like, commercial or otherwise :) <br/>
 My two main sources of inspiration for this project are the mintyPi from sudomod, and the Pico snake project from Hari Wiguna <br/>
-mintyPi: https://www.youtube.com/watch?v=YqE2x-0JYzs
-Pico snake: https://www.youtube.com/watch?v=5r_6mbYlLVo
+mintyPi: https://www.youtube.com/watch?v=YqE2x-0JYzs <br/>
+Pico snake: https://www.youtube.com/watch?v=5r_6mbYlLVo <br/>
