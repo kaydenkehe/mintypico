@@ -180,7 +180,7 @@ def startGame():
             clearScreen()
             
             # End game if snake touches wall or itself
-            if snakeHead[0] < 2 or snakeHead[0] > 126 or snakeHead[1] < 2 or snakeHead[1] > 62 or snakeHead in snakeBody[:-1]:
+            if snakeHead[0] < 2 or snakeHead[0] > 124 or snakeHead[1] < 2 or snakeHead[1] > 60 or snakeHead in snakeBody[:-1]:
                 score = (len(snakeBody) - 9) // 2
                 break
 
