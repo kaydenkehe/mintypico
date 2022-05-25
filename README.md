@@ -16,6 +16,7 @@ The four right buttons operate the games <br/>
 **main_normal.py:** Main code for those using a normal Pico without a battery <br/>
 
 ### **OTHER FILES:** <br/>
+**highscores.txt:** Keeps records of highscores. Should be downloaded to Pico along with main.py and sh1106.py <br/>
 **prints.zip:** Contains all 3D print files <br/>
 --**screenholder.obj:** Holds display in place <br/>
 --**holeguide.obj:** Guide for drilling holes in the tin <br/>
