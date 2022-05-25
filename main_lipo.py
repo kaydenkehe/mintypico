@@ -1,3 +1,7 @@
+# Created by Kayden Kehe, May 2022
+# This version is for those using a Pimoroni Pico LiPo with a LiPo battery
+# REMEMBER TO RENAME THIS FILE TO "main.py"
+
 from random import randint, choice
 from machine import Pin, I2C, ADC
 from sh1106 import SH1106_I2C
