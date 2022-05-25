@@ -181,7 +181,7 @@ def startGame():
             
             # End game if snake touches wall or itself
             if snakeHead[0] < 2 or snakeHead[0] > 126 or snakeHead[1] < 2 or snakeHead[1] > 62 or snakeHead in snakeBody[:-1]:
-                score = len(snakeBody) - 9
+                score = (len(snakeBody) - 9) // 2
                 break
 
             # Change velocity based on button press
@@ -407,8 +407,19 @@ def startGame():
     elif currentGame == 6: return
     
     clearScreen()
+    
+    # Read and write highscores
+    highscore = 0
+    with open('highscores.txt', 'r+') as hs:
+        hsLines = hs.readlines()
+        if score > int(hsLines[currentGame - 1].strip()): hsLines[currentGame - 1] = str(score) + '\n'
+        hs.seek(0)
+        hs.write(''.join(hsLines))
+        highscore = int(hsLines[currentGame - 1].strip())
+    
     display.text('GAME OVER', 28, 16, 1)
     display.text(f'SCORE: {score}', 28, 28, 1)
+    display.text(f'BEST: {highscore}', 28, 40, 1)
     display.show()
     sleep(0.5)
 
