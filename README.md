@@ -12,7 +12,8 @@ The four right buttons operate the games <br/>
 
 ### **CODE:** <br/>
 **sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
-**main.py:** All of the code that isn't the driver. Handles games, menu, battery capacity, etc. <br/>
+**main_lipo.py:** Main code for those using Pimoroni Pico LiPo with a battery <br/>
+**main_normal.py:** Main code for those using a normal Pico without a battery <br/>
 
 ### **OTHER FILES:** <br/>
 **prints.zip:** Contains all 3D print files <br/>
