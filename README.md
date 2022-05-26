@@ -7,7 +7,7 @@
 ### **USAGE:**<br/>
 The top left button starts games <br/>
 The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x) <br/>
-To switch the Pico back into normal mode, hold the low power button, then press the right button, then press the top button <br/>
+To switch the Pico back into normal mode, while holding the low-power button, press the right button, then the top button, then the left button <br/>
 The four right buttons operate the games <br/>
 
 ### **CODE:** <br/>
