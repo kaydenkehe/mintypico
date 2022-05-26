@@ -441,10 +441,13 @@ def lowPowerLoop():
                 while leftButton.value() == 1:
                     while upButton.value() == 0:
                         sleep(0.05)
-                        if upButton.value() == 1:
-                            machine.freq(125000000)
-                            display.sleep(False)
-                            return
+                        while upButton.value() == 1:
+                            while rightButton.value() == 0:
+                                sleep(0.05)
+                                if rightButton.value() == 1:
+                                    machine.freq(125000000)
+                                    display.sleep(False)
+                                    return
 
 def mainLoop():
     global currentGame
@@ -469,4 +472,3 @@ def mainLoop():
 
 renderMenu()
 mainLoop()
-
