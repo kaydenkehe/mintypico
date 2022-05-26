@@ -1,5 +1,5 @@
 # **mintyPico**
-##### This repo contains the code and files necessary to build the "***mintyPico***" <br/>
+##### This repo contains the code and files necessary to build the "mintyPico" <br/>
 ##### Youtube tutorial: https://youtube.com/ <br/>
 ##### For this project, you should have a drill, a dremel, and a soldering iron. A set of metal files would also be nice! <br/>
 #
