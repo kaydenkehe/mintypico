@@ -12,8 +12,8 @@ The four right buttons operate the games <br/>
 
 ### **CODE:** <br/>
 **sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
-**main_lipo.py:** Main code for those using Pimoroni Pico LiPo with a battery <br/>
-**main_normal.py:** Main code for those using a normal Pico without a battery <br/>
+**main_lipo.py:** Main code for those using Pimoroni Pico LiPo with a battery (Rename to main.py) <br/>
+**main_normal.py:** Main code for those using a normal Pico without a battery (Rename to main.py) <br/>
 
 ### **OTHER FILES:** <br/>
 **highscores.txt:** Keeps records of highscores. Should be downloaded to the Pico along with main.py and sh1106.py <br/>
