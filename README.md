@@ -12,7 +12,7 @@ To switch the Pico back into normal mode, while holding the low-power button, pr
 The four right buttons operate the games <br/>
 
 ### **CODE:** <br/>
-**sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106 <br/>
+**sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106. I included it in this repo in case the code changes and becomes incompatible; all credit to the original author, Robert Hammelrath <br/>
 **main_lipo.py:** Main code for those using Pimoroni Pico LiPo with a battery (Rename to main.py) <br/>
 **main_normal.py:** Main code for those using a normal Pico without a battery (Rename to main.py) <br/>
 
