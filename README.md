@@ -22,7 +22,8 @@ The four right buttons operate the games <br/>
 --**screenholder.obj:** Holds display in place <br/>
 --**holeguide.obj:** Guide for drilling holes in the tin <br/>
 --**base.obj:** Holds the Pico and battery <br/>
---**buttonholder.obj:** Holds the button switches <br/>
+--**buttonholder_lipo.obj:** Holds the button switches <br/>
+--**buttonholder_normal.obj:** Holds button switches, doesn't include space for low-power button <br/>
 **pcb.zip:** Contains gerber files for PCB. I ordered my PCB from https://www.pcbway.com/ <br/>
 
 ### **PARTS:** <br/>
