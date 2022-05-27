@@ -12,7 +12,6 @@ i2c = I2C(0, scl=Pin(9), sda=Pin(8), freq=400000)
 display = SH1106_I2C(128, 64, i2c, None, 60)
 
 # Configure buttons
-lowPowerButton = Pin(5, Pin.IN, Pin.PULL_UP)
 restartButton = Pin(22, Pin.IN, Pin.PULL_UP)
 leftButton = Pin(28, Pin.IN, Pin.PULL_UP)
 rightButton = Pin(1, Pin.IN, Pin.PULL_UP)
@@ -379,36 +378,10 @@ def startGame():
     display.show()
     sleep(0.5)
 
-# Put the Pico in "low-power" mode
-def lowPowerLoop():
-    # Disable screen and decrease CPU frequency
-    display.sleep(True)
-    machine.freq(25000000)
-    while True:
-        sleep(0.5)
-        while lowPowerButton.value() == 0:
-            while leftButton.value() == 0:
-                sleep(0.05)
-                while leftButton.value() == 1:
-                    while upButton.value() == 0:
-                        sleep(0.05)
-                        while upButton.value() == 1:
-                            while rightButton.value() == 0:
-                                sleep(0.05)
-                                if rightButton.value() == 1:
-                                    machine.freq(125000000)
-                                    display.sleep(False)
-                                    return
-
 def mainLoop():
     global currentGame
-    lowPowerSwitchUsable = False # This variable helps make sure that low-power mode is not immediately reactivated upon being deactivated
     
     while True:
-        if lowPowerButton.value() == 1 and not lowPowerSwitchUsable: lowPowerSwitchUsable = True
-        if lowPowerButton.value() == 0 and lowPowerSwitchUsable:
-            lowPowerSwitchUsable = False
-            lowPowerLoop()
         if restartButton.value() == 0: startGame() # Start game when start button pressed
         
         # Cycle through menu when up/down buttons pressed
