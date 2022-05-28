@@ -120,10 +120,11 @@ def renderMenu():
     elif currentGame == 6:
         timeStep = 0
         lowPowerSwitchUsable = False
+        returnable = False # Used to make sure the following while loop isn't immediately exited by accident
         
         while True:
-            # Update display every 2.5 seconds (50 * 0.05)
-            if timeStep % 50 == 0:
+            # Update display every 2.5 seconds (250 * 0.01)
+            if timeStep % 250 == 0:
                 clearScreen()
                 display.text('BATTERY', 36, 14, 1)
                 voltage, battery = getBattery() # Get voltage and estimated capacity
@@ -141,7 +142,7 @@ def renderMenu():
                 display.text(str(currentGame), 116, 52, 1)
                 display.show()
             
-            sleep(0.05)
+            sleep(0.01)
             timeStep += 1
             
             # This code for the low power mode is copied from mainLoop
@@ -149,8 +150,9 @@ def renderMenu():
             if lowPowerButton.value() == 0 and lowPowerSwitchUsable:
                 lowPowerSwitchUsable = False
                 lowPowerLoop()
-                
-            if upButton.value() == 0 or downButton.value() == 0: return
+             
+            if upButton.value() == 1 and downButton.value() == 1: returnable = True
+            if (upButton.value() == 0 or downButton.value() == 0) and returnable: return
 
     display.text(str(currentGame), 116, 52, 1)
     display.show()
@@ -161,11 +163,19 @@ def startGame():
     score = 0
     
     # Snake
+    # The snake code here is hot garbage. I kept adding features to make it play more nicely, but the features were poorly integrated.
+    # It works really well, so I'm just choosing to avert my gaze.
     if currentGame == 1:
-        snakeHead = [randint(12, 54) * 2, randint(12, 20) * 2] # Position of head of snake
+        # These variables are being used to make sure velocity can't be changed twice on one button press
+        leftUsable = True
+        upUsable = True
+        rightUsable = True
+        downUsable = True
+        
+        snakeHead = [randint(6, 27) * 4, randint(6, 10) * 4] # Position of head of snake
         snakeBody = [[snakeHead[0], snakeHead[1]]] # Contains all positions of snake body parts
-        applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
-        while applePos in snakeBody: applePos = [randint(4, 62) * 2, randint(4, 30) * 2] # Position of apple
+        applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
+        while applePos in snakeBody: applePos = [randint(2, 30) * 4, randint(2, 14) * 4] # Position of apple
         
         # For velocity, [0, 1] means down, [0, -1] means up, [1, 0] means left, and [-1, 0] means right
         snakeInitVelocityX = choice([-1, 1, 0, 0])
@@ -180,23 +190,38 @@ def startGame():
             clearScreen()
             
             # End game if snake touches wall or itself
-            if snakeHead[0] < 2 or snakeHead[0] > 124 or snakeHead[1] < 2 or snakeHead[1] > 60 or snakeHead in snakeBody[:-1]:
+            if snakeHead[0] < 2 or snakeHead[0] > 122 or snakeHead[1] < 2 or snakeHead[1] > 58 or snakeHead in snakeBody[:-1]:
                 score = (len(snakeBody) - 9) // 2
                 break
 
-            # Change velocity based on button press
-            if downButton.value() == 0 and snakeVelocity != [0, -1]: movementQueue.insert(0, [0, 1])
-            if upButton.value() == 0 and snakeVelocity != [0, 1]: movementQueue.insert(0, [0, -1])
-            if rightButton.value() == 0 and snakeVelocity != [1, 0]: movementQueue.insert(0, [-1, 0])
-            if leftButton.value() == 0 and snakeVelocity != [-1, 0]: movementQueue.insert(0, [1, 0])
+            if timeStep % 2 == 0:
+                if downButton.value() == 1: downUsable = True
+                if upButton.value() == 1: upUsable = True
+                if rightButton.value() == 1: rightUsable = True
+                if leftButton.value() == 1: leftUsable = True
+
+                # Change velocity based on button press
+                if downButton.value() == 0 and snakeVelocity != [0, -1] and downUsable:
+                    movementQueue.insert(0, [0, 1])
+                    downUsable = False
+                if upButton.value() == 0 and snakeVelocity != [0, 1] and upUsable:
+                    movementQueue.insert(0, [0, -1])
+                    upUsable = False
+                if rightButton.value() == 0 and snakeVelocity != [1, 0] and rightUsable:
+                    movementQueue.insert(0, [-1, 0])
+                    rightUsable = False
+                if leftButton.value() == 0 and snakeVelocity != [-1, 0] and leftUsable:
+                    movementQueue.insert(0, [1, 0])
+                    leftUsable = False
+                    
             movementQueue = movementQueue[:5]
             snakeVelocity = movementQueue.pop(0)
             while len(movementQueue) < 5: movementQueue.insert(0, snakeVelocity)
 
             # Display body of snake
             for body in snakeBody:
-                display.fill_rect(body[0], body[1], 2, 2, 1)
-            display.fill_rect(applePos[0], applePos[1], 2, 2, 1) # Display apple
+                display.fill_rect(body[0], body[1], 4, 4, 1)
+            display.fill_rect(applePos[0], applePos[1], 4, 4, 1) # Display apple
             
             # Update snake based on velocity
             if snakeVelocity[0] != 0: snakeHead[0] = snakeHead[0] + snakeVelocity[0] * 2
@@ -205,8 +230,8 @@ def startGame():
             
             # Remove oldest bit of snake unless game started fewer than 8 timesteps ago OR the snake is on the apple
             if snakeHead == applePos:
-                applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
-                while applePos in snakeBody: applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
+                applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
+                while applePos in snakeBody: applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
                 secondGrowth = True
             elif timeStep >= 8 and secondGrowth == False: snakeBody.pop(0)
             elif timeStep >= 8 and secondGrowth == True: secondGrowth = False
@@ -425,7 +450,7 @@ def startGame():
 
 def getBattery():
     voltage = vsys.read_u16() * batteryConversion
-    batteryPercent = 100 * ((voltage - 2.8) / (4.2 - 2.8))
+    batteryPercent = 100 * ((voltage - 3.35) / (4.2 - 3.35))
     return voltage, batteryPercent
 
 # Put the Pico in "low-power" mode
@@ -452,19 +477,26 @@ def lowPowerLoop():
 def mainLoop():
     global currentGame
     lowPowerSwitchUsable = False # This variable helps make sure that low-power mode is not immediately reactivated upon being deactivated
+    canNavigate = True # Prevent holding down to scroll through menu
     
     while True:
         if lowPowerButton.value() == 1 and not lowPowerSwitchUsable: lowPowerSwitchUsable = True
         if lowPowerButton.value() == 0 and lowPowerSwitchUsable:
             lowPowerSwitchUsable = False
             lowPowerLoop()
+    
+        if currentGame == 6: canNavigate = True
+        if upButton.value() == 1 and downButton.value() == 1: canNavigate = True
+    
         if restartButton.value() == 0: startGame() # Start game when start button pressed
         
         # Cycle through menu when up/down buttons pressed
-        elif upButton.value() == 0:
+        elif upButton.value() == 0 and canNavigate:
+            canNavigate = False
             currentGame = games[(currentGame) % len(games)]
             renderMenu()    
-        elif downButton.value() == 0:
+        elif downButton.value() == 0 and canNavigate:
+            canNavigate = False
             currentGame = games[(currentGame - 2) % len(games)]
             renderMenu()
             
