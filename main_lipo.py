@@ -459,7 +459,7 @@ def lowPowerLoop():
     display.sleep(True)
     machine.freq(25000000)
     while True:
-        sleep(0.5)
+        sleep(0.2)
         while lowPowerButton.value() == 0:
             while leftButton.value() == 0:
                 sleep(0.05)
