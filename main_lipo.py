@@ -174,8 +174,8 @@ def startGame():
         
         snakeHead = [randint(6, 27) * 4, randint(6, 10) * 4] # Position of head of snake
         snakeBody = [[snakeHead[0], snakeHead[1]]] # Contains all positions of snake body parts
-        applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
-        while applePos in snakeBody: applePos = [randint(2, 30) * 4, randint(2, 14) * 4] # Position of apple
+        applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
+        while applePos in snakeBody: applePos = [randint(1, 30) * 4, randint(1, 14) * 4] # Position of apple
         
         # For velocity, [0, 1] means down, [0, -1] means up, [1, 0] means left, and [-1, 0] means right
         snakeInitVelocityX = choice([-1, 1, 0, 0])
@@ -230,8 +230,8 @@ def startGame():
             
             # Remove oldest bit of snake unless game started fewer than 8 timesteps ago OR the snake is on the apple
             if snakeHead == applePos:
-                applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
-                while applePos in snakeBody: applePos = [randint(2, 30) * 4, randint(2, 14) * 4]
+                applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
+                while applePos in snakeBody: applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
                 secondGrowth = True
             elif timeStep >= 8 and secondGrowth == False: snakeBody.pop(0)
             elif timeStep >= 8 and secondGrowth == True: secondGrowth = False
@@ -344,9 +344,11 @@ def startGame():
         ballsPos = []
         ballsVelocity = []
         for _ in range(6):
-            ballsPos.append([randint(6, 124), randint(6, 62)])
+            ballsPos.append([randint(12, 124), randint(12, 62)])
             ballsVelocity.append([choice([-1, 1]), choice([-1, 1])])
         gameOver = False
+        # Make at most four balls double speed
+        speedBalls = [randint(0,5), randint(0,5), randint(0,5), randint(0,5)]
         
         while not gameOver:
             clearScreen()
@@ -361,8 +363,12 @@ def startGame():
                 elif ballPos[1] <= 2: ballVelocity[1] = 1
                 
                 # Update ball position
-                ballPos[0] = ballPos[0] + ballVelocity[0]
-                ballPos[1] = ballPos[1] + ballVelocity[1]
+                if ballsPos.index(ballPos) in speedBalls:
+                    ballPos[0] = ballPos[0] + ballVelocity[0] * 2
+                    ballPos[1] = ballPos[1] + ballVelocity[1] * 2
+                else:
+                    ballPos[0] = ballPos[0] + ballVelocity[0]
+                    ballPos[1] = ballPos[1] + ballVelocity[1]
                 display.fill_rect(ballPos[0], ballPos[1], 2, 2, 1)
                 
                 if ballPos[0] - playerPos[0] <= 10 and ballPos[0] - playerPos[0] >= -3 and ballPos[1] - playerPos[1] <= 10 and ballPos[1] - playerPos[1] >= -3:
@@ -456,6 +462,7 @@ def getBattery():
 # Put the Pico in "low-power" mode
 def lowPowerLoop():
     # Disable screen and decrease CPU frequency
+    global currentGame
     display.sleep(True)
     machine.freq(25000000)
     while True:
@@ -472,6 +479,8 @@ def lowPowerLoop():
                                 if rightButton.value() == 1:
                                     machine.freq(125000000)
                                     display.sleep(False)
+                                    currentGame = 1
+                                    renderMenu()
                                     return
 
 def mainLoop():
