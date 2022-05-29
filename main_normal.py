@@ -119,11 +119,20 @@ def startGame():
     score = 0
     
     # Snake
+    # Snake
+    # The snake code here is hot garbage. I kept adding features to make it play more nicely, but the features were poorly integrated.
+    # It works really well, so I'm just choosing to avert my gaze.
     if currentGame == 1:
-        snakeHead = [randint(12, 54) * 2, randint(12, 20) * 2] # Position of head of snake
+        # These variables are being used to make sure velocity can't be changed twice on one button press
+        leftUsable = True
+        upUsable = True
+        rightUsable = True
+        downUsable = True
+        
+        snakeHead = [randint(6, 27) * 4, randint(6, 10) * 4] # Position of head of snake
         snakeBody = [[snakeHead[0], snakeHead[1]]] # Contains all positions of snake body parts
-        applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
-        while applePos in snakeBody: applePos = [randint(4, 62) * 2, randint(4, 30) * 2] # Position of apple
+        applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
+        while applePos in snakeBody: applePos = [randint(1, 30) * 4, randint(1, 14) * 4] # Position of apple
         
         # For velocity, [0, 1] means down, [0, -1] means up, [1, 0] means left, and [-1, 0] means right
         snakeInitVelocityX = choice([-1, 1, 0, 0])
@@ -138,23 +147,38 @@ def startGame():
             clearScreen()
             
             # End game if snake touches wall or itself
-            if snakeHead[0] < 2 or snakeHead[0] > 124 or snakeHead[1] < 2 or snakeHead[1] > 60 or snakeHead in snakeBody[:-1]:
+            if snakeHead[0] < 2 or snakeHead[0] > 122 or snakeHead[1] < 2 or snakeHead[1] > 58 or snakeHead in snakeBody[:-1]:
                 score = (len(snakeBody) - 9) // 2
                 break
 
-            # Change velocity based on button press
-            if downButton.value() == 0 and snakeVelocity != [0, -1]: movementQueue.insert(0, [0, 1])
-            if upButton.value() == 0 and snakeVelocity != [0, 1]: movementQueue.insert(0, [0, -1])
-            if rightButton.value() == 0 and snakeVelocity != [1, 0]: movementQueue.insert(0, [-1, 0])
-            if leftButton.value() == 0 and snakeVelocity != [-1, 0]: movementQueue.insert(0, [1, 0])
+            if timeStep % 2 == 0:
+                if downButton.value() == 1: downUsable = True
+                if upButton.value() == 1: upUsable = True
+                if rightButton.value() == 1: rightUsable = True
+                if leftButton.value() == 1: leftUsable = True
+
+                # Change velocity based on button press
+                if downButton.value() == 0 and snakeVelocity != [0, -1] and downUsable:
+                    movementQueue.insert(0, [0, 1])
+                    downUsable = False
+                if upButton.value() == 0 and snakeVelocity != [0, 1] and upUsable:
+                    movementQueue.insert(0, [0, -1])
+                    upUsable = False
+                if rightButton.value() == 0 and snakeVelocity != [1, 0] and rightUsable:
+                    movementQueue.insert(0, [-1, 0])
+                    rightUsable = False
+                if leftButton.value() == 0 and snakeVelocity != [-1, 0] and leftUsable:
+                    movementQueue.insert(0, [1, 0])
+                    leftUsable = False
+                    
             movementQueue = movementQueue[:5]
             snakeVelocity = movementQueue.pop(0)
             while len(movementQueue) < 5: movementQueue.insert(0, snakeVelocity)
 
             # Display body of snake
             for body in snakeBody:
-                display.fill_rect(body[0], body[1], 2, 2, 1)
-            display.fill_rect(applePos[0], applePos[1], 2, 2, 1) # Display apple
+                display.fill_rect(body[0], body[1], 4, 4, 1)
+            display.fill_rect(applePos[0], applePos[1], 4, 4, 1) # Display apple
             
             # Update snake based on velocity
             if snakeVelocity[0] != 0: snakeHead[0] = snakeHead[0] + snakeVelocity[0] * 2
@@ -163,8 +187,8 @@ def startGame():
             
             # Remove oldest bit of snake unless game started fewer than 8 timesteps ago OR the snake is on the apple
             if snakeHead == applePos:
-                applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
-                while applePos in snakeBody: applePos = [randint(4, 62) * 2, randint(4, 30) * 2]
+                applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
+                while applePos in snakeBody: applePos = [randint(1, 30) * 4, randint(1, 14) * 4]
                 secondGrowth = True
             elif timeStep >= 8 and secondGrowth == False: snakeBody.pop(0)
             elif timeStep >= 8 and secondGrowth == True: secondGrowth = False
@@ -172,7 +196,7 @@ def startGame():
             display.show()
             timeStep += 1
             sleep(0.01 if timeStep >= 8 else 0.04)
-    
+            
     # Breakout
     elif currentGame == 2:
         gameOver = False
@@ -277,9 +301,11 @@ def startGame():
         ballsPos = []
         ballsVelocity = []
         for _ in range(6):
-            ballsPos.append([randint(6, 124), randint(6, 62)])
+            ballsPos.append([randint(12, 124), randint(12, 62)])
             ballsVelocity.append([choice([-1, 1]), choice([-1, 1])])
         gameOver = False
+        # Make at most four balls double speed
+        speedBalls = [randint(0,5), randint(0,5), randint(0,5), randint(0,5)]
         
         while not gameOver:
             clearScreen()
@@ -294,8 +320,12 @@ def startGame():
                 elif ballPos[1] <= 2: ballVelocity[1] = 1
                 
                 # Update ball position
-                ballPos[0] = ballPos[0] + ballVelocity[0]
-                ballPos[1] = ballPos[1] + ballVelocity[1]
+                if ballsPos.index(ballPos) in speedBalls:
+                    ballPos[0] = ballPos[0] + ballVelocity[0] * 2
+                    ballPos[1] = ballPos[1] + ballVelocity[1] * 2
+                else:
+                    ballPos[0] = ballPos[0] + ballVelocity[0]
+                    ballPos[1] = ballPos[1] + ballVelocity[1]
                 display.fill_rect(ballPos[0], ballPos[1], 2, 2, 1)
                 
                 if ballPos[0] - playerPos[0] <= 10 and ballPos[0] - playerPos[0] >= -3 and ballPos[1] - playerPos[1] <= 10 and ballPos[1] - playerPos[1] >= -3:
@@ -380,15 +410,20 @@ def startGame():
 
 def mainLoop():
     global currentGame
+    canNavigate = True # Prevent holding down to scroll through menu
     
     while True:
+        if upButton.value() == 1 and downButton.value() == 1: canNavigate = True
+    
         if restartButton.value() == 0: startGame() # Start game when start button pressed
         
         # Cycle through menu when up/down buttons pressed
-        elif upButton.value() == 0:
+        elif upButton.value() == 0 and canNavigate:
+            canNavigate = False
             currentGame = games[(currentGame) % len(games)]
             renderMenu()    
-        elif downButton.value() == 0:
+        elif downButton.value() == 0 and canNavigate:
+            canNavigate = False
             currentGame = games[(currentGame - 2) % len(games)]
             renderMenu()
             
