@@ -12,7 +12,7 @@
 The top left button starts games <br/>
 The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x) <br/>
 To switch the Pico back into normal mode, while holding the low-power button, press the right button, then the top button, then the left button <br/>
-The four right buttons operate the games <br/>
+The four rightmost buttons operate the games <br/>
 
 ### **CODE:** <br/>
 **sh1106.py:** Driver for display, code can be found at https://github.com/robert-hh/SH1106. I included it in this repo in case the code changes and becomes incompatible; all credit to the original author, Robert Hammelrath <br/>
