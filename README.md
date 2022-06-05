@@ -3,6 +3,7 @@
 ##### YouTube tutorial: https://youtube.com/ <br/>
 ##### My YouTube channel: https://www.youtube.com/channel/UCn5eZ8l-LLnRv9ov-WQtwqA
 ##### For this project, you should have a drill, a dremel, and a soldering iron. A set of metal files would also be nice! <br/>
+##### BE AWARE: In my experience, only high quality cables for charging will work. Using a bad USB-C charging cable can cause the mintyPico to freeze
 #
 
 ![mintyPico Showcase](./images/thumbnail.JPG)
@@ -36,6 +37,8 @@ The four right buttons operate the games <br/>
 **Buttons:** https://www.amazon.com/dp/B09YPQV1F9/ <br/>
 **Wire:** https://www.amazon.com/StrivedayTM-Flexible-Silicone-electronic-electrics/dp/B01KQ2JNLI/ <br/>
 **Tape:** (I know it's expensive, but it works really well) https://www.amazon.com/gp/product/B07GWRF9D8/ <br/>
+
+![Breadboard Prototype](./images/breadboard.JPG)
 
 ### **NOTES:** <br/>
 Feel free to use the code and files from this project in any capacity you like, commercial or otherwise :) <br/>
