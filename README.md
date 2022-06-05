@@ -1,6 +1,6 @@
 # **mintyPico**
 ##### This repo contains the code and files necessary to build the mintyPico <br/>
-##### Build guide: https://youtube.com/ <br/>
+##### Build guide: https://youtu.be/b9Obk1vu7JE <br/>
 ##### My YouTube channel: https://www.youtube.com/channel/UCn5eZ8l-LLnRv9ov-WQtwqA
 ##### For this project, you should have a drill, a dremel, and a soldering iron. A set of metal files would also be nice! <br/>
 ##### BE AWARE: In my experience, only high quality cables for charging will work. Using a bad USB-C charging cable can cause the mintyPico to freeze
