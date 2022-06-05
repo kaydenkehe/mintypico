@@ -38,7 +38,7 @@ The four right buttons operate the games <br/>
 **Wire:** https://www.amazon.com/StrivedayTM-Flexible-Silicone-electronic-electrics/dp/B01KQ2JNLI/ <br/>
 **Tape:** (I know it's expensive, but it works really well) https://www.amazon.com/gp/product/B07GWRF9D8/ <br/>
 
-![Breadboard Prototype](./images/breadboard.JPG)
+![Breadboard Prototype](./images/breadboard.jpg)
 
 ### **NOTES:** <br/>
 Feel free to use the code and files from this project in any capacity you like, commercial or otherwise :) <br/>
