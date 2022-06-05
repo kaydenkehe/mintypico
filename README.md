@@ -5,6 +5,8 @@
 ##### For this project, you should have a drill, a dremel, and a soldering iron. A set of metal files would also be nice! <br/>
 #
 
+![mintyPico Showcase](./images/thumbnail.JPG)
+
 ### **USAGE:**<br/>
 The top left button starts games <br/>
 The bottom left button switches the pico into "low-power" mode (disables display and turns cpu clock frequency down 5x) <br/>
